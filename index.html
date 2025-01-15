@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulk Resize Photos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BULK<span>RESIZE</span> <span class="photos">PHOTOS</span></h1>
+        </header>
+        
+        <main>
+            <div class="upload-section">
+                <div class="drop-zone" id="dropZone">
+                    <h2>Drop Images Here!</h2>
+                    <p>OR</p>
+                    <button class="choose-btn" onclick="document.getElementById('fileInput').click()">
+                        Choose Images
+                    </button>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                </div>
+            </div>
+
+            <div class="settings-panel" id="settingsPanel" style="display: none;">
+                <div class="preview-section" id="previewSection">
+                    <h3>Selected Images</h3>
+                    <div class="image-previews" id="imagePreviews"></div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Percentage</h3>
+                    <div class="setting-row">
+                        <label>Scale images to</label>
+                        <input type="number" id="scalePercentage" value="50" min="1" max="100">
+                        <span>% of the original dimensions.</span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Image Format</h3>
+                    <select id="imageFormat">
+                        <option value="jpeg">JPEG</option>
+                        <option value="png">PNG</option>
+                        <option value="webp">WebP</option>
+                    </select>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Image Quality</h3>
+                    <div class="quality-slider">
+                        <input type="range" id="qualitySlider" min="0" max="100" value="75">
+                        <span id="qualityValue">75%</span>
+                    </div>
+                </div>
+
+                <div class="settings-group">
+                    <h3>Image Background</h3>
+                    <div class="background-option">
+                        <div class="background-controls">
+                            <select id="bgType">
+                                <option value="white">White Background</option>
+                                <option value="transparent">Transparent</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-bar" id="progressBar" style="display: none;">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-text" id="progressText">Processing: 0%</div>
+                </div>
+
+                <button id="processButton" class="process-btn">Process Images</button>
+                <button id="resetButton" class="reset-btn" style="display: none;">Process More Images</button>
+            </div>
+
+            <div class="features">
+                <h2>Resize batches of images.</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <span class="emoji">🚀</span>
+                        <span>Super-fast</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">💯</span>
+                        <span>100% free</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">∞</span>
+                        <span>Unlimited usage</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">👍</span>
+                        <span>Easy to use</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">✅</span>
+                        <span>No sign-up</span>
+                    </div>
+                    <div class="feature-item">
+                        <span class="emoji">🔒</span>
+                        <span>Private — no uploading</span>
+                    </div>
+                </div>
+                <a href="#" class="sample-link">Try sample image</a>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
