@@ -6,10 +6,10 @@
     <meta http-equiv="Content-Security-Policy" 
           content="default-src 'self'; 
                    frame-ancestors 'self' https://bulkimagegeneration.com;
-                   script-src 'self' 'unsafe-inline' 'unsafe-eval';
+                   script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdnjs.cloudflare.com;
                    style-src 'self' 'unsafe-inline';
                    img-src 'self' data: blob:;
-                   connect-src 'self' blob:;">
+                   connect-src 'self' blob: data:;">
     <title>Bulk Resize Photos</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/browser-image-compression@2.0.2/dist/browser-image-compression.js"></script>
@@ -118,7 +118,7 @@
         </main>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js" integrity="sha512-xQBQYt9UcgblF6aCMrwU1NkVA7HCXaSN2oq0so80KO+y68M+n64FOcqgav4igHe6D5ObBLIf68DWv+gfBowczg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="script.js"></script>
 </body>
 </html> 

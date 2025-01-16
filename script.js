@@ -1,4 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (typeof JSZip === 'undefined') {
+        console.error('JSZip library not loaded');
+        return;
+    }
+    
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const settingsPanel = document.getElementById('settingsPanel');
@@ -110,9 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 const resizedImage = await resizeImage(file, scale, format, quality);
                 const fileName = `resized-${file.name.split('.')[0]}.${format}`;
                 
-                // Convert base64 to blob
-                const base64Data = resizedImage.split(',')[1];
-                const blob = await fetch(resizedImage).then(res => res.blob());
+                // Convert base64 to blob more reliably
+                const base64Response = await fetch(resizedImage);
+                const blob = await base64Response.blob();
                 
                 zip.file(fileName, blob);
                 
